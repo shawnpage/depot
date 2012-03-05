@@ -1,0 +1,4 @@
+== Welcome to Rails
+
+This is the depot app from Agile Web Development with Rails.
+http://pragprog.com/book/rails4/agile-web-development-with-rails
