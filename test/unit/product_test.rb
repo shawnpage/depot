@@ -24,10 +24,21 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
 
     assert_equal "must be greater than or equal to 0.01",
-    product.errors[:price].join('; ')
+      product.errors[:price].join('; ')
 
     product.price = 1
     assert product.valid?
+  end
+
+  test "product title must be at least 5 characters" do
+    product = Product.new(title: "Book",
+                          description: "yyy",
+                          image_url: "zzz.jpg")
+
+    assert product.invalid?
+
+    assert_equal "Title must be at least 5 characters.",
+      product.errors[:title].join('; ')
   end
 
   def new_product(image_url)
